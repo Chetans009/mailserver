@@ -8,7 +8,7 @@ include_once('Mail_Mime-1.10.2/Mail_Mime-1.10.2/Mail/mime.php');
 $max_allowed_file_size = 100; // size in KB 
 $allowed_extensions = array("jpg", "jpeg", "gif", "bmp");
 $upload_folder = './uploads/'; //<-- this folder must be writeable by the script
-$your_email = 'test@email.com';//<<--  update this to your email address
+$your_email = 'xyz@gmail.com';//<<--  update this to your email address
 
 $errors ='';
 
@@ -88,16 +88,16 @@ if(isset($_POST['submit']))
 		$headers = $message->headers($extraheaders);
 
 		$host = "ssl://smtp.gmail.com";
-		$username = "email@test.com;
-		$password = "password";
+		$username = "xyz@gmail.com";
+		$password = "xyz";
 
 		$mail = Mail::factory('smtp', array ('host' => $host, 'port' => 465, 'auth' => true,
 		 'username' => $username,'password' => $password));
 
-		print_r($mail);
+		//print_r($mail);
 		//$mail = Mail::factory("mail");
 		$mail->send($to, $headers, $body);
-		exit;
+		//exit;
 		//redirect to 'thank-you page
 		//header('Location: thank-you.html');
 	}
